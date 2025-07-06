@@ -1,0 +1,207 @@
+body {
+  margin: 0;
+  font-family: 'SamsungOne', 'Poppins', Arial, sans-serif;
+  background-color: #121212;
+  color: #E0E0E0;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 {
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+}
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.125rem; }
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 20px 16px 20px;
+  background-color: #1E88E5;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 12px rgb(30 136 229 / 0.3);
+}
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgb(0 191 166 / 0.4);
+}
+main {
+  max-width: 480px;
+  margin: 24px auto;
+  padding: 0 20px 40px 20px;
+}
+.balance-section {
+  background-color: #222B3A;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgb(0 191 166 / 0.15);
+  margin-bottom: 24px;
+}
+.balance-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00BFA6;
+}
+.summary-section {
+  background: #222B3A;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(30,136,229,0.08);
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 1.12rem;
+  color: #fff;
+}
+#total-cashin { color: #00BFA6; font-weight: bold; }
+#total-cashout { color: #e53935; font-weight: bold; }
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+form {
+  background-color: #1E1E2F;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 10px rgb(30 30 47 / 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+form h3 {
+  color: #00BFA6;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+input[type="number"],
+input[type="text"],
+input[type="date"] {
+  background-color: #2A2F43;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: #E0E0E0;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+input[type="number"]:focus,
+input[type="text"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  background-color: #00BFA6;
+  color: #121212;
+  font-weight: 600;
+}
+button {
+  background-color: #00BFA6;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 0;
+  color: #121212;
+  font-weight: 700;
+  font-size: 1.125rem;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgb(0 191 166 / 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+button:hover {
+  background-color: #00e0b0;
+  box-shadow: 0 8px 20px rgb(0 224 176 / 0.7);
+}
+.list-section {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.list-section > div {
+  flex: 1;
+}
+h3 {
+  margin-bottom: 16px;
+  color: #1E88E5;
+  font-weight: 700;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 320px;
+  overflow-y: auto;
+}
+li {
+  background-color: #2A2F43;
+  padding: 14px 20px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 8px rgb(0 191 166 / 0.2);
+  transition: box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+li:hover {
+  box-shadow: 0 6px 18px rgb(0 191 166 / 0.4);
+}
+li span {
+  font-size: 1rem;
+  color: #E0E0E0;
+  word-break: break-word;
+}
+li button {
+  background-color: #e53935;
+  border: none;
+  border-radius: 12px;
+  padding: 6px 14px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgb(229 57 53 / 0.5);
+  transition: background-color 0.3s ease;
+}
+li button:hover {
+  background-color: #ff6659;
+}
+#export-excel-btn {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 24px auto;
+  background-color: #1E88E5;
+  color: #fff;
+  padding: 18px 0;
+  border-radius: 24px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgb(30 136 229 / 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+#export-excel-btn:hover {
+  background-color: #3a9df8;
+  box-shadow: 0 8px 22px rgb(58 157 248 / 0.8);
+}
+@media (max-width: 640px) {
+  .list-section {
+    flex-direction: column;
+  }
+}

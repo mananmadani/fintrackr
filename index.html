@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinTrackr</title>
+  <link rel="manifest" href="/fintrackr/manifest.json">
+  <meta name="theme-color" content="#1E88E5">
+  <link rel="icon" href="/fintrackr/fintrackr.png" type="image/png">
+  <link rel="apple-touch-icon" href="/fintrackr/fintrackr.png">
+  <link rel="stylesheet" href="/fintrackr/style.css">
+</head>
+<body>
+  <div class="header">
+    <img src="/fintrackr/fintrackr.png" alt="FinTrackr Logo" class="logo">
+    <h1>FinTrackr</h1>
+  </div>
+  <main>
+    <section class="balance-section">
+      <h2>Balance: ₹<span id="balance">0</span></h2>
+    </section>
+    <section class="summary-section">
+      <div class="summary-row">
+        <span>Cash In (Total Income):</span>
+        <span id="total-cashin">₹0</span>
+      </div>
+      <div class="summary-row">
+        <span>Cash Out (Total Expenses):</span>
+        <span id="total-cashout">₹0</span>
+      </div>
+    </section>
+    <section class="form-section">
+      <form id="income-form" autocomplete="off">
+        <h3>Add Income</h3>
+        <input type="number" id="income-amount" placeholder="Amount" required>
+        <input type="text" id="income-category" placeholder="Category" required>
+        <input type="date" id="income-date" required>
+        <input type="text" id="income-note" placeholder="Notes">
+        <button type="submit">Add Income</button>
+      </form>
+      <form id="expense-form" autocomplete="off">
+        <h3>Add Expense</h3>
+        <input type="number" id="expense-amount" placeholder="Amount" required>
+        <input type="text" id="expense-category" placeholder="Category" required>
+        <input type="date" id="expense-date" required>
+        <input type="text" id="expense-note" placeholder="Notes">
+        <button type="submit">Add Expense</button>
+      </form>
+    </section>
+    <section class="list-section">
+      <div>
+        <h3>Income</h3>
+        <ul id="income-list"></ul>
+      </div>
+      <div>
+        <h3>Expenses</h3>
+        <ul id="expense-list"></ul>
+      </div>
+    </section>
+    <button id="export-excel-btn">Export as Excel</button>
+    <button id="delete-all-btn" style="background:#e53935;color:#fff;margin-top:24px;">Delete All Data</button>
+  </main>
+  <script src="/fintrackr/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/fintrackr/sw.js', {scope: '/fintrackr/'})
+          .then(reg => console.log('Service Worker registered.', reg))
+          .catch(err => console.log('Service Worker registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>

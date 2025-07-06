@@ -1,0 +1,17 @@
+{
+  "name": "FinTrackr",
+  "short_name": "FinTrackr",
+  "start_url": "/fintrackr/",
+  "scope": "/fintrackr/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#1E88E5",
+  "icons": [
+    {
+      "src": "/fintrackr/fintrackr.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
