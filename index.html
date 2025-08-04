@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FinTrackr</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- jsPDF CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <img src="fintrackr.png" class="logo" alt="FinTrackr logo"/>
+    <span class="title">FinTrackr</span>
+  </header>
+  <main>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      <button class="tab-btn" data-tab="income">Income</button>
+      <button class="tab-btn" data-tab="expense">Expense</button>
+    </nav>
+
+    <!-- Overview -->
+    <section class="tab-content active" id="tab-overview">
+      <div class="card balance-section">
+        <div class="balance-label">Balance</div>
+        <div class="balance-amount">₹<span id="balance">0.00</span></div>
+      </div>
+      <div class="card summary-section">
+        <div class="summary-row">
+          <span>Total Income</span>
+          <span id="total-cashin">₹0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Total Expense</span>
+          <span id="total-cashout">₹0.00</span>
+        </div>
+      </div>
+      <div class="card charts-section">
+        <div class="chart-card">
+          <h3>Income Breakdown</h3>
+          <div class="chart-wrap"><canvas id="income-pie" width="120" height="120"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>Expense Breakdown</h3>
+          <div class="chart-wrap"><canvas id="expense-pie" width="120" height="120"></canvas></div>
+        </div>
+      </div>
+      <div class="card action-section">
+        <button id="export-pdf-btn">Export as PDF</button>
+        <button id="delete-all-btn" class="danger">Delete All Data</button>
+      </div>
+    </section>
+
+    <!-- Income Tab -->
+    <section class="tab-content" id="tab-income">
+      <div class="card form-section">
+        <form id="income-form">
+          <h3>Add Income</h3>
+          <input type="number" id="income-amount" placeholder="Amount" required min="0.01" step="0.01">
+          <input type="text" id="income-category" placeholder="Category" list="inc-category-list" required autocomplete="off">
+          <datalist id="inc-category-list"></datalist>
+          <input type="date" id="income-date" required>
+          <input type="text" id="income-note" placeholder="Note">
+          <button type="submit">Add Income</button>
+        </form>
+      </div>
+      <div class="card list-section">
+        <input type="text" id="search-income" class="entry-search" placeholder="Search incomes...">
+        <ul id="income-list"></ul>
+      </div>
+    </section>
+
+    <!-- Expense Tab -->
+    <section class="tab-content" id="tab-expense">
+      <div class="card form-section">
+        <form id="expense-form">
+          <h3>Add Expense</h3>
+          <input type="number" id="expense-amount" placeholder="Amount" required min="0.01" step="0.01">
+          <input type="text" id="expense-category" placeholder="Category" list="exp-category-list" required autocomplete="off">
+          <datalist id="exp-category-list"></datalist>
+          <input type="date" id="expense-date" required>
+          <input type="text" id="expense-note" placeholder="Note">
+          <button type="submit">Add Expense</button>
+        </form>
+      </div>
+      <div class="card list-section">
+        <input type="text" id="search-expense" class="entry-search" placeholder="Search expenses...">
+        <ul id="expense-list"></ul>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
